@@ -1,0 +1,46 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Invooker1/UI-Libraries/main/Athenic%20UI%20Lib", true))()
+
+local window = library:CreateWindow("Window Name")
+
+local tab = window:CreateTab("Tab Name")
+
+local label = tab:Label("Label Name", {
+   BgColor = Color3.fromRGB(20,20,20),
+   TextSize = 18,
+   TextColor = Color3.fromRGB(255,255,255)
+}) -- Args(<string> Name, <table?> LabelTraits, <table?> ImageInfo)
+
+label:ChangeText("Label Name") -- Args(<string> NewLabelName)
+
+tab:Button("Button Name", function()
+   print("Button Pressed!")
+end) -- Args(<string> Name, <function?> Callback)
+
+local toggle = tab:Toggle("Toggle Name", function(bool)
+   print("Toggle is: "..tostring(bool))
+end) -- Args(<string> Name, <function?> Callback)
+
+toggle:SetToggle(false) -- Args(<boolean> ToggleValue)
+
+tab:TextBox("TextBox Name", function(text)
+   print("TextBox Text is: "..text)
+end) -- Args(<string> Name, <function?> Callback)
+
+tab:Slider("Slider Name", 100, function(val)
+   print("Slider value is: "..val)
+end) -- Args(<string> Name, <number?> MaxValue, <function?> Callback)
+
+tab:Keybind("Keybind Name", "E", function()
+   print("Key Pressed")
+end) -- Args(<string> Name, <string?> KeyName, <function?> Callback)
+
+tab:Dropdown("Dropdown Name", {"Option 1", "Option 2", "Option 3"}, function(selected)
+   print("Dropdown element selected: "..selected)
+end, true) -- Args(<string> Name, <table?> Options, <function?> Callback, <boolean?> ShowNoneOption)
+
+--All functions have optional last argument <table?> ImageInfo
+--[[
+   tab:Toggle("Noclip", function(bool)
+       print("Noclip is: "..tostring(bool))
+   end, {Id = "rbxassetid://9145597152", ImageColor = Color3.fromRGB(255,255,255)})
+]]
